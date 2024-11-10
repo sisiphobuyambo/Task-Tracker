@@ -72,21 +72,14 @@ taskTrackerContainer.addEventListener("click", (e)=>{
     function checkItem(){
 
         const itemDetails = itemsArray.find(obj => obj.id === parseInt(event.dataset.id))
-        let {isComplete} = itemDetails
 
-        // console.log(typeof itemsArray[0].id)
-        // console.log(typeof parseInt(event.dataset.id))
-        // console.log(isComplete)
-
-        if(!isComplete){
+        if(!itemDetails.isComplete){
             event.classList.add("line-through");
+            itemDetails.isComplete = true;
         }else{
             event.classList.remove("line-through");
+            itemDetails.isComplete = false;
         }
-
-        {isComplete = !isComplete}
-        // isComplete = !isComplete
-        console.log(itemsArray)
 
     }
 

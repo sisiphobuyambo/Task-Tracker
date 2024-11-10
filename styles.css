@@ -23,7 +23,6 @@ LAYOUT
 }
 
 .input-field-container{
-    /* border: 1px magenta solid; */
     width: 100%;
     margin-bottom: 1.5em;
     display: flex;
@@ -67,8 +66,6 @@ input[type=checkbox] {
     background-color: transparent;
     border: 2px black solid;
     border-radius: 15%;
-    
-    
 }
 
 .checkbox-container::after{
@@ -93,7 +90,6 @@ input:checked~.checkbox-container::after{
 }
 
 .task-item-styling{
-    /* border: 1px magenta solid; */
     display: flex;
     justify-content: space-between;
 }

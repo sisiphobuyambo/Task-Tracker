@@ -2,22 +2,17 @@ const taskTrackerContainer = document.getElementById("task-tracker-outer-contain
 const taskBoard = document.getElementById("task-board");
 const addBtn = document.getElementById("add-task-btn");
 const inputField = document.getElementById("task-input-field");
-let isChecked = false;
-let isEdit = false;
 
-const itemsArray =[]
-let nextTaskId = 0;
+const itemsArray =[];
+const taskDescription = inputField.value;
+let taskId = 0;
 let labelId = 0;
 
 
-// APPEND TASK TO DOM
 
 taskTrackerContainer.addEventListener("click", (e)=>{
-
     const event = e.target;
-    let taskDescription = inputField.value;
-          
-
+    
     if(event.id === "add-task-btn"){
        addListItem()
 
@@ -25,13 +20,12 @@ taskTrackerContainer.addEventListener("click", (e)=>{
         checkItem()
 
     }else if(event.id === "edit"){
-        isEdit = true;
+        // isEdit = true;
 
     }else if(event.id === "delete"){
-        deleteItem(event)
+        deleteItem()
     }
     
-
 
 // FUNCTIONS
 
@@ -60,7 +54,7 @@ taskTrackerContainer.addEventListener("click", (e)=>{
             inputField.value = ""
 
             const listItemDetails = {
-                id: ++nextTaskId,
+                id: ++taskId,
                 description: taskDescription,
                 isComplete: false
             }
@@ -76,15 +70,20 @@ taskTrackerContainer.addEventListener("click", (e)=>{
         if(!itemDetails.isComplete){
             event.classList.add("line-through");
             itemDetails.isComplete = true;
+
+
+
         }else{
             event.classList.remove("line-through");
             itemDetails.isComplete = false;
+
+
         }
 
     }
 
-    function deleteItem(el){
-        el.parentElement.parentElement.parentElement.remove()
+    function deleteItem(){
+        event.parentElement.parentElement.parentElement.remove()
     }
 
 }

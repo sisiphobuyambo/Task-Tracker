@@ -13,11 +13,14 @@ let labelId = 0;
 taskTrackerContainer.addEventListener("click", (e)=>{
     const event = e.target;
     
+    console.log(event)
+
     if(event.id === "add-task-btn"){
        addListItem()
 
     }else if(event.id ==="check"){
         checkItem()
+        
 
     }else if(event.id === "edit"){
         // isEdit = true;
@@ -38,10 +41,10 @@ taskTrackerContainer.addEventListener("click", (e)=>{
 
             const taskItemHtml = `<div class="task-list-container">
                                     <div class="task-item-styling">
-                                        <label data-id="${++labelId}" id="check" class="task-item-label">
-                                            <input type="checkbox"> ${inputField.value}
+                                        <div data-id="${++labelId}" id="check" class="task-item-label">
+                                            <span class="text-span">${inputField.value}</span>
                                             <span class="checkbox-container"></span>
-                                        </label>
+                                        </div>
                                         <div class="task-icons">
                                             <i id="edit" class="fa-solid fa-pencil"></i>
                                             <i id="delete" class="fa-solid fa-trash"></i>
@@ -79,6 +82,7 @@ taskTrackerContainer.addEventListener("click", (e)=>{
 
 
         }
+        
 
     }
 

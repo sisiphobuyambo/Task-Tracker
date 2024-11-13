@@ -15,9 +15,14 @@
 <body>
     <div id="task-tracker-outer-container" class="task-tracker-outer-container">
         <h3 class="heading">Task Tracker</h3>
-        <div class="input-field-container">
-            <input type="text" class="task-input-field" id="task-input-field" placeholder="Add new task...">
-            <button class="add-task-btn" id="add-task-btn">ADD</button>
+        <div class="input-header-container">
+            <div class="input-field-container">
+                <input type="text" class="task-input-field" id="task-input-field" placeholder="Add new task...">
+                <button class="add-task-btn" id="add-task-btn">ADD</button>
+            </div>
+            <div class="filter-container">
+                <p>All <i class="fa-solid fa-angle-down"></i></p>
+            </div>
         </div>
         <div id="task-board"></div>
     </div>

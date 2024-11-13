@@ -16,30 +16,47 @@ LAYOUT
 
 .task-tracker-outer-container{
     border: 2px black solid;
-    width: 40%;
+    width: 45%;
     margin: 0 auto;
     padding: 1em 2em;
     border-radius: 15px;
 }
 
-.input-field-container{
-    width: 100%;
-    margin-bottom: 1.5em;
+.input-header-container{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.filter-container{
+    margin-left: 0.25em;
+}
+
+p {
+    margin: 0;
+    border: 2px black solid;
+    text-align: center;
+    border-radius: 7px;
+    padding: 0.25em 0.5em;
+}
+
+.input-field-container{
+    width: 88%;
+    display: flex;
 }
 
 .task-input-field{
-    width: 85%;
+    width: 100%;
     padding: 0.25em;
     font-size: 1.2rem;
+    margin-right: 0.5em;
 }
 
 .add-task-btn{
-    padding: 0.25em 0.5em;
     font-size: 1.2rem;
     background-color: #000;
     color: #fff;
+    padding: 0.25em 0.5em;
 }
 
 .task-input-field,
@@ -107,6 +124,10 @@ LAYOUT
     color: rgb(148, 148, 148);
 }
 
+.tick-mark {
+    border: solid rgb(148, 148, 148);
+}
+
 li {
     margin-left: 1.25em;
     margin-right: 0.25em;
@@ -119,6 +140,8 @@ h3 {
     margin-bottom: 1em;
 }
 
+
+
 /*//////////////////
 MOBILE/TABLET SCREEN
 ///////////////////*/
@@ -129,14 +152,20 @@ MOBILE/TABLET SCREEN
         width: 90%;
     }
 
+    .input-header-container,
     .input-field-container{
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
-    .task-input-field{
-        width: 100%;
-        margin-bottom: 0.25em;
+    .filter-container,
+    .add-task-btn{
+        margin-top: 0.25em;
+    }
+
+    .filter-container{
+        margin-left: 0;
     }
 
     .task-item-styling{

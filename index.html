@@ -10,18 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/efe3ac660f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
     <div id="task-tracker-outer-container" class="task-tracker-outer-container">
-        <h3 class="heading">Task Tracker</h3>
+        <div class="heading-container">
+            <h2 class="heading">Task Tracker</h2>
+            <img class="animate__animated animate__tada" src="/Assets/paper-clip-post-it-notes-22388.svg" alt="">
+        </div>
         <div class="input-header-container">
             <div class="input-field-container">
                 <input type="text" class="task-input-field" id="task-input-field" placeholder="Add new task...">
                 <button class="add-task-btn" id="add-task-btn">ADD</button>
             </div>
             <div class="filter-container">
-                <p>All <i class="fa-solid fa-angle-down"></i></p>
+                <select name="filter">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                </select>
             </div>
         </div>
         <div id="task-board"></div>

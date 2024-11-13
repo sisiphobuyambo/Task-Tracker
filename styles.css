@@ -32,12 +32,9 @@ LAYOUT
     margin-left: 0.25em;
 }
 
-p {
-    margin: 0;
-    border: 2px black solid;
-    text-align: center;
-    border-radius: 7px;
-    padding: 0.25em 0.5em;
+select {
+    font-size: 1.2rem;
+    padding: 0.25em 0.25em;
 }
 
 .input-field-container{
@@ -60,7 +57,8 @@ p {
 }
 
 .task-input-field,
-.add-task-btn{
+.add-task-btn,
+select{
     border-radius: 5px;
 }
 
@@ -135,12 +133,22 @@ li {
     word-break: break-all;
 }
 
-h3 {
-    margin-top: 0;
-    margin-bottom: 1em;
+.heading-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
+h2 {
 
+    margin-right: 0.5em;
+}
+
+img{
+    width: 44px;
+    height: 44px;
+}
 
 /*//////////////////
 MOBILE/TABLET SCREEN

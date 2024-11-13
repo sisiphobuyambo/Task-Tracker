@@ -50,7 +50,7 @@ taskTrackerContainer.addEventListener("click", (e)=>{
                                     <hr>
                                 </div>`
 
-            taskBoardArr.push(taskItemHtml)                    
+            // taskBoardArr.push(taskItemHtml)                    
             taskBoard.innerHTML += taskItemHtml
             inputField.value = ""
 

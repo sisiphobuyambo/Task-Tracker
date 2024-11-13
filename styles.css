@@ -91,12 +91,15 @@ LAYOUT
     flex-direction: row;
     align-items: end;
     justify-content: space-between;
-    width: 8%;
 }
 
 .fa-pencil,
 .fa-trash{
     cursor: pointer;
+}
+
+.fa-trash{
+    margin-left: 1em;
 }
 
 .line-through {

@@ -4,6 +4,7 @@ const addBtn = document.getElementById("add-task-btn");
 const inputField = document.getElementById("task-input-field");
 
 const itemsArray =[];
+const taskBoardArr = [];
 const taskDescription = inputField.value;
 let taskId = 0;
 let labelId = 0;
@@ -33,9 +34,8 @@ taskTrackerContainer.addEventListener("click", (e)=>{
 
         if(inputField.value === ""){
             event.disable
-
+   
         }else{
-
             const taskItemHtml = `<div class="task-list-container">
                                     <div class="task-item-styling">
                                         <ul class="task-item-label">
@@ -50,6 +50,7 @@ taskTrackerContainer.addEventListener("click", (e)=>{
                                     <hr>
                                 </div>`
 
+            taskBoardArr.push(taskItemHtml)                    
             taskBoard.innerHTML += taskItemHtml
             inputField.value = ""
 
@@ -66,10 +67,18 @@ taskTrackerContainer.addEventListener("click", (e)=>{
     function checkItem(){
 
         const itemDetails = itemsArray.find(obj => obj.id === parseInt(event.dataset.id))
+        const itemId = itemDetails.id
+        const itemObjIndex = itemsArray.findIndex(obj => obj.id === parseInt(event.dataset.id))
+        // console.log()
 
         if(!itemDetails.isComplete){
             event.classList.add("line-through");
+
+            itemsArray.push(itemsArray.splice(itemObjIndex, 1)[0]);
             itemDetails.isComplete = true;
+
+            // console.log(itemsArray)
+            console.log(itemObjIndex)
 
         }else{
             event.classList.remove("line-through");

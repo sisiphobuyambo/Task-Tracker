@@ -83,7 +83,14 @@ select{
     border-radius: 15%;
 }
 
-.checkbox-container::after{
+.fa-check{
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    color: rgb(148, 148, 148);
+}
+
+/* .checkbox-container::after{
     content: "";
     position: absolute;
     display: none;
@@ -94,27 +101,16 @@ select{
     border: solid #000;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
-}
+} */
 
 .task-item-styling{
     display: flex;
     justify-content: space-between;
 }
 
-.task-icons{
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-between;
-}
-
-.fa-pencil,
-.fa-trash{
-    cursor: pointer;
-}
-
 .fa-trash{
     margin-left: 1em;
+    cursor: pointer;
 }
 
 .line-through {
@@ -181,9 +177,5 @@ MOBILE/TABLET SCREEN
         flex-direction: column;
     }
 
-    .task-icons {
-        margin-top: 1em;
-        align-self: flex-end;
-    }
 
 }

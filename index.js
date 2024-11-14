@@ -2,6 +2,7 @@ const taskTrackerContainer = document.getElementById("task-tracker-outer-contain
 const taskBoard = document.getElementById("task-board");
 const addBtn = document.getElementById("add-task-btn");
 const inputField = document.getElementById("task-input-field");
+const filter = document.querySelector(".filter");
 
 const itemsArray =[];
 const taskBoardArr = [];
@@ -9,6 +10,32 @@ const taskDescription = inputField.value;
 let taskId = 0;
 let labelId = 0;
 
+filter.addEventListener("change", e =>{
+    const optionValue = e.target.value
+    const tasks = taskBoard.children
+
+      for (const child of tasks) {
+        switch (optionValue) {
+            case "all":
+                child.style.display = "block";
+                break;
+            case "completed":
+                if (child.classList.contains("completed")){
+                    child.style.display = "block";
+                } else {
+                    child.style.display = "none";
+                }
+                break;
+            case "pending":
+                if (!child.classList.contains("completed")) {
+                    child.style.display = "block";
+                } else {
+                    child.style.display = "none";
+                }
+        }
+    }
+
+})
 
 
 taskTrackerContainer.addEventListener("click", (e)=>{
@@ -20,13 +47,14 @@ taskTrackerContainer.addEventListener("click", (e)=>{
     }else if(event.id ==="check"){
         checkItem()
 
-    }else if(event.id === "edit"){
-        // isEdit = true;
-
     }else if(event.id === "delete"){
         deleteItem()
     }
     
+// Filter Event
+
+
+
 
 // FUNCTIONS
 
@@ -71,19 +99,16 @@ taskTrackerContainer.addEventListener("click", (e)=>{
         const itemDetails = itemsArray.find(obj => obj.id === parseInt(event.dataset.id))
         const itemId = itemDetails.id
         const itemObjIndex = itemsArray.findIndex(obj => obj.id === parseInt(event.dataset.id))
-        // console.log()
 
         if(!itemDetails.isComplete){
             event.classList.add("line-through");
-
-            itemsArray.push(itemsArray.splice(itemObjIndex, 1)[0]);
+            event.parentElement.parentElement.parentElement.classList.add("completed")
             itemDetails.isComplete = true;
 
-            // console.log(itemsArray)
-            console.log(itemObjIndex)
 
         }else{
             event.classList.remove("line-through");
+            event.parentElement.parentElement.parentElement.classList.remove("pending")
             itemDetails.isComplete = false;
         }
 

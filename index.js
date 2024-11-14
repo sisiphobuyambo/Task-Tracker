@@ -10,40 +10,15 @@ const taskDescription = inputField.value;
 let taskId = 0;
 let labelId = 0;
 
+// EVENT LISTENERS
+
 inputField.addEventListener("keyup", e => {
-    if(e.code === "NumpadEnter"){
+    if(e.code === "NumpadEnter") {
         addListItem(e.target)
-    }
-    
+    }  
 })
 
-filter.addEventListener("change", e =>{
-    const optionValue = e.target.value
-    const tasks = taskBoard.children
-
-      for (const child of tasks) {
-        switch (optionValue) {
-            case "all":
-                child.style.display = "block";
-                break;
-            case "completed":
-                if (child.classList.contains("completed")){
-                    child.style.display = "block";
-                } else {
-                    child.style.display = "none";
-                }
-                break;
-            case "pending":
-                if (!child.classList.contains("completed")) {
-                    child.style.display = "block";
-                } else {
-                    child.style.display = "none";
-                }
-        }
-    }
-
-})
-
+filter.addEventListener("change", e => toggleFilter(e) )
 
 taskTrackerContainer.addEventListener("click", (e)=>{
     const event = e.target;
@@ -57,10 +32,6 @@ taskTrackerContainer.addEventListener("click", (e)=>{
     }else if(event.id === "delete"){
         deleteItem(event)
     }
-    
-
-
-
 }
 )
 
@@ -75,15 +46,12 @@ function addListItem(e){
         const taskItemHtml = `<div class="task-list-container">
                                 <div class="task-item-styling">
                                     <ul class="task-item-label">
-                                        <li data-id="${++labelId}" id="check" type="checkbox"> ${inputField.value} </li>
+                                        <li data-id="${++labelId}" id="check"> ${inputField.value} </li>
                                         <span class="checkbox-container"></span>
                                         <i style="display:none;" class="fa-solid fa-check"></i>
                                     </ul>
-                                    <div class="trash-icon">
-                                        <i id="delete" class="fa-solid fa-trash"></i>
-                                    </div>
+                                    <i id="delete" class="fa-solid fa-trash"></i>
                                 </div>
-                                <hr>
                             </div>`
 
               
@@ -130,6 +98,31 @@ function deleteItem(e){
     deleteThirdParent.remove()
 }
 
+function toggleFilter(event){
+    const optionValue = event.target.value
+    const tasks = taskBoard.children
+
+      for (const child of tasks) {
+        switch (optionValue) {
+            case "all":
+                child.style.display = "block";
+                break;
+            case "completed":
+                if (child.classList.contains("completed")){
+                    child.style.display = "block";
+                } else {
+                    child.style.display = "none";
+                }
+                break;
+            case "pending":
+                if (!child.classList.contains("completed")) {
+                    child.style.display = "block";
+                } else {
+                    child.style.display = "none";
+                }
+        }
+    }
+}
 
 
 
